@@ -1,4 +1,4 @@
-# Gaslight - web app (v0.3.0)
+# Gaslight - web app (v0.4.0)
 
 This folder is the complete, built Gaslight web app. It contains no source code.
 
@@ -6,8 +6,8 @@ This folder is the complete, built Gaslight web app. It contains no source code.
   at the root of a GitHub repository, then Settings > Pages > Build and deployment >
   *Deploy from a branch* > `main` / `/ (root)`.
 * **Address:** https://<user>.github.io/<repository>/
-* **Invitation links:** not baked in - rebuild with `npm run pages -- <address>`, or set the address in the app under Settings > Advanced.
+* **Invitation links:** the built-in default (src/shared/config.ts: https://terrint.com/).
 * **Moving to your own domain/server later:** copy the same files to any static web host (no server code needed).
   Rebuild with the new address so invitation links point there.
 
-Built 2026-11-05 10:46 UTC.
+Built 2026-11-05 12:53 UTC.

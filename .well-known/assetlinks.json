@@ -4,7 +4,9 @@
     "target": {
       "namespace": "android_app",
       "package_name": "app.gaslight.mystery",
-      "sha256_cert_fingerprints": ["REPLACE_WITH_YOUR_APP_SIGNING_SHA256_FROM_PLAY_CONSOLE"]
+      "sha256_cert_fingerprints": [
+        "27:C3:F8:66:8A:54:F3:6F:79:94:7D:1F:49:37:F5:4F:DD:02:E7:67:9F:44:44:C7:37:F3:46:60:B8:B1:DA:BA"
+      ]
     }
   }
 ]
