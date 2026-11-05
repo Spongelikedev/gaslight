@@ -1,0 +1,32 @@
+{
+  "version": "0.7.0",
+  "repo": "Spongelikedev/gaslight",
+  "url": "https://github.com/Spongelikedev/gaslight/releases/tag/v0.7.0",
+  "assets": {
+    "Gaslight-0.7.0-mac.dmg": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.7.0/Gaslight-0.7.0-mac.dmg",
+      "size": 252018958
+    },
+    "Gaslight-0.7.0-portable.exe": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.7.0/Gaslight-0.7.0-portable.exe",
+      "size": 116269742
+    },
+    "Gaslight-0.7.0.AppImage": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.7.0/Gaslight-0.7.0.AppImage",
+      "size": 132141337
+    },
+    "Gaslight-0.7.0.ipa": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.7.0/Gaslight-0.7.0.ipa",
+      "size": 8881468
+    },
+    "Gaslight-Setup-0.7.0.exe": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.7.0/Gaslight-Setup-0.7.0.exe",
+      "size": 127436629
+    },
+    "gaslight_0.7.0_amd64.deb": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.7.0/gaslight_0.7.0_amd64.deb",
+      "size": 107930652
+    }
+  },
+  "updated": "2026-11-05T18:47:30.641Z"
+}
