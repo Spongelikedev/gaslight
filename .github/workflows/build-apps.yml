@@ -1,0 +1,118 @@
+# Builds Gaslight for Windows, macOS, Linux and iPhone from build-kit/ (compiled files only)
+# on GitHub's free cloud machines, publishes a GitHub Release and points the website's
+# download pages at it (release.json). Free for public repositories.
+name: Build Gaslight apps
+on:
+  push:
+    paths: ['build-kit/**', '.github/workflows/build-apps.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: build-apps, cancel-in-progress: false }
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      build: ${{ steps.v.outputs.build }}
+      done: ${{ steps.v.outputs.done }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          V=$(jq -r .version build-kit/version.json)
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "build=$(jq -r .build build-kit/version.json)" >> "$GITHUB_OUTPUT"
+          N=$(gh release view "v$V" --json assets --jq '.assets | length' 2>/dev/null || echo 0)
+          if [ "$N" -ge 6 ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then echo "done=true" >> "$GITHUB_OUTPUT"; else echo "done=false" >> "$GITHUB_OUTPUT"; fi
+          echo "Gaslight $V: $N release files already published"
+
+  desktop:
+    needs: check
+    if: needs.check.outputs.done != 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: windows-latest, name: windows, args: '--win nsis portable --x64' }
+          - { os: ubuntu-latest, name: linux, args: '--linux AppImage deb --x64' }
+          - { os: macos-latest, name: mac, args: '--mac dir --universal' }
+    runs-on: ${{ matrix.os }}
+    defaults: { run: { shell: bash } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: mkdir -p kit && tar -xzf build-kit/gaslight-kit.tgz -C kit
+      - working-directory: kit/desktop
+        run: npm install --no-audit --no-fund
+      - working-directory: kit/desktop
+        env: { CSC_IDENTITY_AUTO_DISCOVERY: 'false' }
+        run: npx electron-builder ${{ matrix.args }} --publish never
+      - name: Ad-hoc sign the Mac app and make the .dmg
+        if: matrix.name == 'mac'
+        working-directory: kit/desktop
+        run: |
+          APP=$(find release -maxdepth 2 -name 'Gaslight.app' -type d | head -1)
+          codesign --force --deep --sign - "$APP"
+          codesign --verify --deep --strict "$APP"
+          mkdir -p dmg && cp -R "$APP" dmg/ && ln -s /Applications dmg/Applications
+          hdiutil create -volname "Gaslight" -srcfolder dmg -ov -format UDZO "release/Gaslight-${{ needs.check.outputs.version }}-mac.dmg"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-${{ matrix.name }}
+          if-no-files-found: error
+          path: |
+            kit/desktop/release/*.exe
+            kit/desktop/release/*.AppImage
+            kit/desktop/release/*.deb
+            kit/desktop/release/*.dmg
+
+  ios:
+    needs: check
+    if: needs.check.outputs.done != 'true'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Use the newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)" && xcodebuild -version
+      - run: mkdir -p kit && tar -xzf build-kit/gaslight-kit.tgz -C kit
+      - working-directory: kit/mobile
+        run: npm install --no-audit --no-fund
+      - working-directory: kit/mobile
+        run: bash build-ios.sh "${{ needs.check.outputs.version }}" "${{ needs.check.outputs.build }}"
+      - uses: actions/upload-artifact@v4
+        with: { name: app-ios, path: kit/mobile/out/*.ipa, if-no-files-found: error }
+
+  publish:
+    needs: [check, desktop, ios]
+    if: always() && needs.check.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { path: out, pattern: app-*, merge-multiple: true }
+      - name: Publish the release
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          V=${{ needs.check.outputs.version }}
+          ls -la out 2>/dev/null || true
+          gh release view "v$V" >/dev/null 2>&1 || gh release create "v$V" --target "$GITHUB_SHA" --title "Gaslight $V" --notes "Gaslight $V for Windows, macOS, Linux and iPhone. Setup instructions: the download pages in the website's footer."
+          if ls out/* >/dev/null 2>&1; then gh release upload "v$V" out/* --clobber; fi
+      - name: Point the download pages at the release
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          V=${{ needs.check.outputs.version }}
+          gh release view "v$V" --json assets,url,tagName > /tmp/rel.json
+          node build-kit/write-release.mjs /tmp/rel.json /tmp/release.json "$GITHUB_REPOSITORY" "$V"
+          git pull --ff-only || true
+          if [ -f release.json ] && cmp -s <(jq 'del(.updated)' /tmp/release.json) <(jq 'del(.updated)' release.json); then echo "release.json unchanged"; exit 0; fi
+          cp /tmp/release.json release.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add release.json && git commit -m "Download links for Gaslight $V" && git push
