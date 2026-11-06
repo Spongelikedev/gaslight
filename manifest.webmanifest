@@ -1,0 +1,36 @@
+{
+  "id": "./",
+  "name": "Gaslight",
+  "short_name": "Gaslight",
+  "description": "Live-action murder mystery companion: invitations, secret identities, evidence and verdicts on every guest's phone.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#140d0f",
+  "theme_color": "#140d0f",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "pwa/lamp-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa/lamp-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "pwa/lamp-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

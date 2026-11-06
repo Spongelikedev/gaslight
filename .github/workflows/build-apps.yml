@@ -26,7 +26,7 @@ jobs:
           echo "version=$V" >> "$GITHUB_OUTPUT"
           echo "build=$(jq -r .build build-kit/version.json)" >> "$GITHUB_OUTPUT"
           N=$(gh release view "v$V" --json assets --jq '.assets | length' 2>/dev/null || echo 0)
-          if [ "$N" -ge 6 ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then echo "done=true" >> "$GITHUB_OUTPUT"; else echo "done=false" >> "$GITHUB_OUTPUT"; fi
+          if [ "$N" -ge 8 ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then echo "done=true" >> "$GITHUB_OUTPUT"; else echo "done=false" >> "$GITHUB_OUTPUT"; fi
           echo "Gaslight $V: $N release files already published"
 
   desktop:
@@ -37,7 +37,7 @@ jobs:
       matrix:
         include:
           - { os: windows-latest, name: windows, args: '--win nsis portable --x64' }
-          - { os: ubuntu-latest, name: linux, args: '--linux AppImage deb --x64' }
+          - { os: ubuntu-latest, name: linux, args: '--linux AppImage deb rpm pacman --x64' }
           - { os: macos-latest, name: mac, args: '--mac dir --universal' }
     runs-on: ${{ matrix.os }}
     defaults: { run: { shell: bash } }
@@ -46,6 +46,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: mkdir -p kit && tar -xzf build-kit/gaslight-kit.tgz -C kit
+      - name: Linux packaging tools (rpm for Fedora, bsdtar for Arch)
+        if: matrix.name == 'linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq rpm libarchive-tools
       - working-directory: kit/desktop
         run: npm install --no-audit --no-fund
       - working-directory: kit/desktop
@@ -68,6 +71,8 @@ jobs:
             kit/desktop/release/*.exe
             kit/desktop/release/*.AppImage
             kit/desktop/release/*.deb
+            kit/desktop/release/*.rpm
+            kit/desktop/release/*.pacman
             kit/desktop/release/*.dmg
 
   ios:

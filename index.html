@@ -3,13 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-    <meta name="theme-color" content="#1a1416" />
+    <meta name="theme-color" content="#140d0f" />
+    <meta name="description" content="Gaslight - live-action murder mystery companion. Every guest is a suspect." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Gaslight" />
     <title>Gaslight</title>
-    <link rel="icon" href="./icon.svg" />
-    <script type="module" crossorigin src="./assets/index-BU3I4S6N.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CXpJOQJk.css">
+    <link rel="icon" href="./icon.svg" id="app-favicon" />
+    <link rel="apple-touch-icon" href="./pwa/lamp-apple-180.png" id="app-touch-icon" />
+    <link rel="manifest" href="./manifest.webmanifest" id="app-manifest" />
+    <script>
+      // apply the chosen app emblem (Settings > General) before anything paints
+      try { if (JSON.parse(localStorage.getItem('gaslight:emblem') || '"lamp"') === 'candle') {
+        document.getElementById('app-favicon').href = './icon-candle.svg';
+        document.getElementById('app-touch-icon').href = './pwa/candle-apple-180.png';
+        document.getElementById('app-manifest').href = './manifest-candle.webmanifest';
+      } } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="./assets/index-CSlhq6no.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bi6_6kLN.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>

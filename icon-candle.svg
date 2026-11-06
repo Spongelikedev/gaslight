@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#2b1418"/>
+  <!-- glow -->
+  <circle cx="256" cy="168" r="92" fill="#f7b538" opacity="0.1"/>
+  <!-- flame -->
+  <path d="M256 74c30 40 44 64 44 88a44 44 0 0 1-88 0c0-24 14-48 44-88z" fill="#f7b538"/>
+  <path d="M256 132c12 16 18 27 18 37a18 18 0 0 1-36 0c0-10 6-21 18-37z" fill="#fff1c9"/>
+  <!-- wick -->
+  <rect x="251" y="204" width="10" height="24" rx="4" fill="#3d2026"/>
+  <!-- candle -->
+  <rect x="206" y="226" width="100" height="168" rx="6" fill="#f1dcae"/>
+  <path d="M206 232c0-3 3-6 6-6h88c3 0 6 3 6 6v18c-10 0-12 20-22 20s-10-12-20-12-10 30-20 30-10-26-20-26-8 8-18 8z" fill="#fff8e6"/>
+  <!-- holder -->
+  <rect x="188" y="384" width="136" height="20" rx="8" fill="#d9a548"/>
+  <path d="M132 410h248c0 24-52 40-124 40s-124-16-124-40z" fill="#d9a548"/>
+  <path d="M380 418c26 0 36 12 36 22s-12 20-30 20" fill="none" stroke="#d9a548" stroke-width="14" stroke-linecap="round"/>
+</svg>
