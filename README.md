@@ -1,4 +1,4 @@
-# Gaslight - web app (v0.9.0)
+# Gaslight - web app (v0.9.4)
 
 This folder is the complete, built Gaslight web app. It contains no source code.
 
@@ -14,4 +14,4 @@ This folder is the complete, built Gaslight web app. It contains no source code.
 * **Moving to your own domain/server later:** copy the same files to any static web host (no server code needed).
   Rebuild with the new address so invitation links point there.
 
-Built 2026-11-06 01:47 UTC.
+Built 2026-11-06 09:12 UTC.
