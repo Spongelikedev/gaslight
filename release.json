@@ -1,40 +1,40 @@
 {
-  "version": "0.8.0",
+  "version": "0.9.0",
   "repo": "Spongelikedev/gaslight",
-  "url": "https://github.com/Spongelikedev/gaslight/releases/tag/v0.8.0",
+  "url": "https://github.com/Spongelikedev/gaslight/releases/tag/v0.9.0",
   "assets": {
-    "Gaslight-0.8.0-mac.dmg": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/Gaslight-0.8.0-mac.dmg",
-      "size": 252083615
+    "Gaslight-0.9.0-mac.dmg": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/Gaslight-0.9.0-mac.dmg",
+      "size": 252104939
     },
-    "Gaslight-0.8.0-portable.exe": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/Gaslight-0.8.0-portable.exe",
-      "size": 116323637
+    "Gaslight-0.9.0-portable.exe": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/Gaslight-0.9.0-portable.exe",
+      "size": 116327604
     },
-    "gaslight-0.8.0-x86_64.pacman": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/gaslight-0.8.0-x86_64.pacman",
-      "size": 99720788
+    "gaslight-0.9.0-x86_64.pacman": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/gaslight-0.9.0-x86_64.pacman",
+      "size": 99707936
     },
-    "Gaslight-0.8.0.AppImage": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/Gaslight-0.8.0.AppImage",
-      "size": 132218793
+    "Gaslight-0.9.0.AppImage": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/Gaslight-0.9.0.AppImage",
+      "size": 132239713
     },
-    "Gaslight-0.8.0.ipa": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/Gaslight-0.8.0.ipa",
-      "size": 8970748
+    "Gaslight-0.9.0.ipa": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/Gaslight-0.9.0.ipa",
+      "size": 8981366
     },
-    "gaslight-0.8.0.x86_64.rpm": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/gaslight-0.8.0.x86_64.rpm",
-      "size": 96418839
+    "gaslight-0.9.0.x86_64.rpm": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/gaslight-0.9.0.x86_64.rpm",
+      "size": 96428187
     },
-    "Gaslight-Setup-0.8.0.exe": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/Gaslight-Setup-0.8.0.exe",
-      "size": 127485069
+    "Gaslight-Setup-0.9.0.exe": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/Gaslight-Setup-0.9.0.exe",
+      "size": 127496022
     },
-    "gaslight_0.8.0_amd64.deb": {
-      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.8.0/gaslight_0.8.0_amd64.deb",
-      "size": 107971668
+    "gaslight_0.9.0_amd64.deb": {
+      "url": "https://github.com/Spongelikedev/gaslight/releases/download/v0.9.0/gaslight_0.9.0_amd64.deb",
+      "size": 107988888
     }
   },
-  "updated": "2026-11-06T01:13:12.850Z"
+  "updated": "2026-11-06T08:56:35.837Z"
 }
