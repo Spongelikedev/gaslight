@@ -1,4 +1,4 @@
-# Gaslight - web app (v0.9.7)
+# Gaslight - web app (v0.9.8)
 
 This folder is the complete, built Gaslight web app. It contains no source code.
 
@@ -10,8 +10,8 @@ This folder is the complete, built Gaslight web app. It contains no source code.
   build the Windows, macOS, Linux and iPhone apps (Actions tab > *Build Gaslight apps*) and publish them
   as a Release; the footer's download pages link to it.
 * **Address:** https://<user>.github.io/<repository>/
-* **Invitation links:** the built-in default (src/shared/config.ts: https://terrint.com/).
+* **Invitation links:** the built-in default (src/shared/config.ts: https://gaslight.terrint.com/).
 * **Moving to your own domain/server later:** copy the same files to any static web host (no server code needed).
   Rebuild with the new address so invitation links point there.
 
-Built 2026-11-06 23:41 UTC.
+Built 2026-11-07 01:41 UTC.
