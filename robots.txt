@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Google (Gemini, Search, Search-Grounding)
+User-agent: Google-Extended
+Allow: /
+User-agent: Googlebot
+Allow: /
+
+# OpenAI (ChatGPT / GPTBot)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# xAI (Grok)
+User-agent: GrokBot
+Allow: /
+User-agent: GrokAgent
+Allow: /
+User-agent: xAI-Bot
+Allow: /
+
+Sitemap: https://gaslight.terrint.com/sitemap.xml

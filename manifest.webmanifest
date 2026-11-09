@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Gaslight",
   "short_name": "Gaslight",
-  "description": "Live-action murder mystery companion: invitations, secret identities, evidence and verdicts on every guest's phone.",
+  "description": "Murder mystery companion site: invitations, secret identities, evidence and verdicts on every guest's phone.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

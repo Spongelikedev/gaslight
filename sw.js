@@ -1,8 +1,8 @@
 // Gaslight web app service worker: makes the website installable and usable offline.
 // Pages and data: network first (always the newest version when online), cache as fallback.
 // Hashed build assets (/assets/*) never change, so they are served from the cache first.
-// one cache per release (scripts/pages.mjs stamps the version in); older caches are deleted on activate
-const CACHE = 'gaslight-web-0.9.8';
+// one cache per release; older caches are deleted on activate
+const CACHE = 'gaslight-web-0.9.9';
 const SKIP = ['/downloads/', '/build-kit/', 'release.json', '/api/'];
 
 self.addEventListener('install', (e) => {
