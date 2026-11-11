@@ -49,6 +49,8 @@
     <li>Players connect to the Game Master's own device. Your player name, your choices, messages and votes go to that device for the length of the game. They don't go to us.</li>
     <li>When joining from another network, the two devices find each other through public Nostr relays (encrypted, short-lived notes) and then connect directly. Public STUN servers (Google and Cloudflare) help the devices see each other's internet address. Nothing about the game itself passes through those services.</li>
     <li>The Game Master can remove a guest, which also deletes that guest's game data on their device.</li>
+    <li>A Game Master can save a game and continue it later. The saved game (including guests' names and progress) is kept only on the Game Master's own device.</li>
+    <li>If you turn on <b>Remember names by network</b> (off by default), Gaslight asks the same public STUN servers for this network's internet address, so it can tell networks apart. Only a scrambled (hashed) form of it is kept, on your device, next to the name you used there.</li>
   </ul>
 
   <h2>Invitations and RSVPs</h2>
