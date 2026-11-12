@@ -2,7 +2,7 @@
 // Pages and data: network first (always the newest version when online), cache as fallback.
 // Hashed build assets (/assets/*) never change, so they are served from the cache first.
 // one cache per release; older caches are deleted on activate
-const CACHE = 'gaslight-web-1.0.0';
+const CACHE = 'gaslight-web-1.0.1';
 const SKIP = ['/downloads/', '/build-kit/', 'release.json', '/api/'];
 
 self.addEventListener('install', (e) => {

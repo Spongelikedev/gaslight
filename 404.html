@@ -9,7 +9,12 @@
     <meta property="og:title" content="Gaslight" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gaslight.terrint.com/" />
-    <meta property="og:image" content="https://gaslight.terrint.com/pwa/lamp-512.png" />
+    <meta property="og:image" content="https://gaslight.terrint.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Gaslight: every guest is a suspect" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://gaslight.terrint.com/og-image.png" />
     <meta property="og:description" content="A free murder mystery companion site. Every guest is a suspect." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -17,35 +22,37 @@
     <meta name="apple-mobile-web-app-title" content="Gaslight" />
     <title>Gaslight</title>
     <link rel="canonical" href="https://gaslight.terrint.com/" />
-    <link rel="icon" href="./favicon.ico" sizes="48x48" data-lamp />
+    <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48" data-lamp />
+    <link rel="icon" href="./favicon-48.png" sizes="48x48" type="image/png" data-lamp />
     <link rel="icon" href="./favicon-96.png" sizes="96x96" type="image/png" data-lamp />
+    <link rel="icon" href="./pwa/lamp-192.png" sizes="192x192" type="image/png" data-lamp />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" id="app-favicon" />
     <link rel="apple-touch-icon" href="./pwa/lamp-apple-180.png" id="app-touch-icon" />
     <link rel="manifest" href="./manifest.webmanifest" id="app-manifest" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gaslight","url":"https://gaslight.terrint.com/"}</script>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"Gaslight","url":"https://gaslight.terrint.com/"},{"@context":"https://schema.org","@type":"Organization","name":"Gaslight","url":"https://gaslight.terrint.com/","logo":"https://gaslight.terrint.com/pwa/lamp-512.png"}]</script>
     <script>
       // the public website is https only (LAN game hosts and the apps are left alone)
       if (location.protocol === 'http:' && /(^|\.)terrint\.com$/i.test(location.hostname)) location.replace('https:' + location.href.slice(5));
     </script>
     <script>
       // apply the chosen app emblem (Settings > General) before anything paints
-      try { if (JSON.parse(localStorage.getItem('gaslight:emblem') || '"lamp"') === 'candle') {
+      try { var k = JSON.parse(localStorage.getItem('gaslight:emblem') || '"lamp"'); if (k === 'candle' || k === 'moon') {
         document.querySelectorAll('link[data-lamp]').forEach(function (l) { l.remove(); });
-        document.getElementById('app-favicon').href = './icon-candle.svg';
-        document.getElementById('app-touch-icon').href = './pwa/candle-apple-180.png';
-        document.getElementById('app-manifest').href = './manifest-candle.webmanifest';
+        document.getElementById('app-favicon').href = './icon-' + k + '.svg';
+        document.getElementById('app-touch-icon').href = './pwa/' + k + '-apple-180.png';
+        document.getElementById('app-manifest').href = './manifest-' + k + '.webmanifest';
       } } catch (e) {}
     </script>
-    <script type="module" crossorigin src="./assets/index-D2XFf0JZ.js"></script>
+    <script type="module" crossorigin src="./assets/index-CX1wIfDc.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-XKyaHtl9.js">
     <link rel="modulepreload" crossorigin href="./assets/protocol-CmNyTa8n.js">
-    <link rel="modulepreload" crossorigin href="./assets/Icon-7uLxg3Y9.js">
     <link rel="modulepreload" crossorigin href="./assets/storage-TseRkly8.js">
+    <link rel="modulepreload" crossorigin href="./assets/Icon-DCeQBcHL.js">
     <link rel="modulepreload" crossorigin href="./assets/platform-BiNWVlqU.js">
-    <link rel="modulepreload" crossorigin href="./assets/dist-C93lqtQh.js">
-    <link rel="modulepreload" crossorigin href="./assets/QrScanner-CWwGYQS7.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CDXC8zqu.js">
+    <link rel="modulepreload" crossorigin href="./assets/QrScanner-BxYHnYz1.js">
     <link rel="modulepreload" crossorigin href="./assets/crypto-c-3-rz_M.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-CG5xsxMD.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-BUQhmUti.css">
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#2b1418"/>
+  <defs>
+    <mask id="gl-crescent"><rect x="0" y="0" width="512" height="512" fill="#fff"/><circle cx="322" cy="208" r="134" fill="#000"/></mask>
+  </defs>
+  <!-- glow -->
+  <circle cx="246" cy="268" r="176" fill="#f7b538" opacity="0.08"/>
+  <!-- crescent moon -->
+  <g mask="url(#gl-crescent)">
+    <circle cx="246" cy="268" r="152" fill="#f1dcae"/>
+    <circle cx="170" cy="318" r="20" fill="#dcc08a"/>
+    <circle cx="226" cy="382" r="13" fill="#dcc08a"/>
+    <circle cx="140" cy="250" r="10" fill="#dcc08a"/>
+  </g>
+  <!-- stars -->
+  <path d="M372 132q0 30 26 30-26 0-26 30 0-30-26-30 26 0 26-30z" fill="#f7b538"/>
+  <path d="M414 236q0 17 15 17-15 0-15 17 0-17-15-17 15 0 15-17z" fill="#fff1c9"/>
+</svg>
